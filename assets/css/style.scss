@@ -1,3 +1,11 @@
+@import "{{ site.theme }}"; /* 导入 Slate 主题样式 */
+
+/* 在这里添加您的自定义 CSS */
+body {
+  background-color: #f0f0f0; /* 例如：修改背景色 */
+}
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
