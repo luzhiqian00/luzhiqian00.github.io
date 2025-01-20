@@ -1,36 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>个人主页</title>
+  <title>笑溪的个人主页</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <h1>欢迎来到我的个人主页</h1>
+    <h1>欢迎来到笑溪的个人主页</h1>
     <h2>多干实事</h2>
   </header>
 
   <div class="container">
     <section class="column" id="tech">
-      <h2>技术分享</h2>
-      <p>这里是技术分享的内容...</p>
+      <h2 class="section-title" onclick="toggleContent('techContent')">技术分享</h2>
+      <div class="content" id="techContent">
+        <p>这里是技术分享的内容...</p>
+      </div>
     </section>
     
     <section class="column" id="life">
-      <h2>生活分享</h2>
-      <p>这里是生活分享的内容...</p>
+      <h2 class="section-title" onclick="toggleContent('lifeContent')">生活分享</h2>
+      <div class="content" id="lifeContent">
+        <p>这里是生活分享的内容...</p>
+      </div>
     </section>
 
     <section class="column" id="other">
-      <h2>其他</h2>
-      <p>这里是其他分享的内容...</p>
+      <h2 class="section-title" onclick="toggleContent('otherContent')">其他</h2>
+      <div class="content" id="otherContent">
+        <p>这里是其他分享的内容...</p>
+      </div>
     </section>
   </div>
 
   <footer>
     <p>&copy; 2025 我的个人主页</p>
   </footer>
+
+  <script>
+    function toggleContent(id) {
+      var content = document.getElementById(id);
+      if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block";
+      } else {
+        content.style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>
