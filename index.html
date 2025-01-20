@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>笑溪的个人主页</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    header {
+      text-align: center;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -13,26 +23,15 @@
   </header>
 
   <div class="container">
-    <section class="column" id="tech">
-      <h2 class="section-title" onclick="toggleContent('techContent')">技术分享</h2>
-      <div class="content" id="techContent">
-        <p>这里是技术分享的内容...</p>
-      </div>
-    </section>
-    
-    <section class="column" id="life">
-      <h2 class="section-title" onclick="toggleContent('lifeContent')">生活分享</h2>
-      <div class="content" id="lifeContent">
-        <p>这里是生活分享的内容...</p>
-      </div>
-    </section>
+    <div class="nav-buttons">
+      <button onclick="loadPage('tech')">技术分享</button>
+      <button onclick="loadPage('life')">生活分享</button>
+      <button onclick="loadPage('other')">其他</button>
+    </div>
 
-    <section class="column" id="other">
-      <h2 class="section-title" onclick="toggleContent('otherContent')">其他</h2>
-      <div class="content" id="otherContent">
-        <p>这里是其他分享的内容...</p>
-      </div>
-    </section>
+    <div id="content">
+      <p>请点击按钮查看内容</p>
+    </div>
   </div>
 
   <footer>
@@ -40,12 +39,29 @@
   </footer>
 
   <script>
-    function toggleContent(id) {
-      var content = document.getElementById(id);
-      if (content.style.display === "none" || content.style.display === "") {
-        content.style.display = "block";
-      } else {
-        content.style.display = "none";
+    function loadPage(page) {
+      const contentDiv = document.getElementById('content');
+      switch(page) {
+        case 'tech':
+          contentDiv.innerHTML = `
+            <h2>技术分享</h2>
+            <p>这里是技术分享的内容...</p>
+          `;
+          break;
+        case 'life':
+          contentDiv.innerHTML = `
+            <h2>生活分享</h2>
+            <p>这里是生活分享的内容...</p>
+          `;
+          break;
+        case 'other':
+          contentDiv.innerHTML = `
+            <h2>其他</h2>
+            <p>这里是其他分享的内容...</p>
+          `;
+          break;
+        default:
+          contentDiv.innerHTML = `<p>请点击按钮查看内容</p>`;
       }
     }
   </script>
